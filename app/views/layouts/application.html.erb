@@ -14,9 +14,10 @@
 <div class='nav-format'>
   <div class='row'>
     <div class='col-md-12'>
-  <%= link_to 'HOME', root_path %> |
-  <%= link_to 'USERS', users_path %> |
-  <%= link_to 'CONFERENCE ROOMS', rooms_path %>
+      <%= link_to 'HOME', root_path %> |
+      <%= link_to 'USERS', users_path %> |
+      <%= link_to 'CONFERENCE ROOMS', rooms_path %>
+      <%= link_to 'MEETINGS', room_meetings_path(params[:room_id]) %>
     </div>
   </div>
 </div>

@@ -1,5 +1,7 @@
 <h1>Listing Rooms</h1>
 
+<%= link_to 'New Room', new_room_path %>
+
 <table class='table table-striped'>
   <thead>
     <tr>
@@ -26,4 +28,36 @@
 
 <br>
 
-<%= link_to 'New Room', new_room_path %>
+<nav>
+  <ul class='pagination'>
+    <li class="<%= 'disabled' if @current_page <= 0 %>">
+      <%= link_to('Previous', (rooms_path(page: @current_page - 1) if @current_page > 0), :'aria-label' => 'Previous') %>
+    </li>
+
+    <% ((@current_page - 2)..(@current_page + 2)).each do |page_num| %>
+      <% if page_num == @current_page %>
+        <li class='active'>
+          <% elsif page_num < 0 %>
+        <li class="disabled">
+         <% else %>
+        <li>
+        <% end %>
+
+          <% if page_num < 0 %>
+           <%= link_to('*', '#') %>
+          <% else %>
+           <%= link_to(page_num, rooms_path(page: page_num)) %>
+          <% end %>
+        </li>
+    <% end %>
+
+    <li class="<%= 'disabled' if @rooms.length > 0 %>">
+     <%= link_to('Next >', (rooms_path(page: @current_page + 1) if @rooms.length > 0), :'aria-label' => 'Next')  %>
+    </li>
+
+  </ul>
+</nav>
+
+<br>
+
+
