@@ -19,7 +19,7 @@
         <td><%= User.find_by(id: meeting.user_id).email %></td>
         <td><%= Room.find_by(id: meeting.room_id).name %></td>
         <td><%= link_to 'Show', room_meeting_path(params[:room_id], meeting) %></td>
-        <td><%= link_to 'Edit', edit_room_meeting_path(@room, meeting) %></td>
+        <td><%= link_to 'Edit', edit_room_meeting_path(params[:room_id], meeting) %></td>
         <td><%= link_to 'Destroy', "#", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
