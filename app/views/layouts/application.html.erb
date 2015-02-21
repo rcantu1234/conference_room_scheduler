@@ -5,12 +5,20 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/cosmo/bootstrap.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/darkly/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-<div class="#">
-  <%= link_to 'HOME',
+<h1 class='header-format'>CONFERENCE ROOM SCHEDULER</h1>
+
+<div class='nav-format'>
+  <div class='row'>
+    <div class='col-md-12'>
+  <%= link_to 'HOME', root_path %> |
+  <%= link_to 'USERS', users_path %> |
+  <%= link_to 'CONFERENCE ROOMS', rooms_path %>
+    </div>
+  </div>
 </div>
 
 <div class='container'>
@@ -22,7 +30,6 @@
     </div>
   </div>
 </div>
-<%= debug(params) if Rails.env == 'development' %>
-<%= params %>
+
 </body>
 </html>

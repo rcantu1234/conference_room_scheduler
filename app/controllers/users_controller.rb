@@ -2,7 +2,7 @@ class UsersController < InheritedResources::Base
   #before_action :authenticate_user!
 
 def index
-  @users = User.all
+
   @current_page = params.fetch(:page, 0).to_i
   @users = User.limit(5)
                .offset(5 * params[:page].to_i)

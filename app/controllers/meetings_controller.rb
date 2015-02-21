@@ -2,6 +2,7 @@ class MeetingsController < InheritedResources::Base
 
   def index
     @meetings = Meeting.all
+    @rooms = Room.find(params[:room_id])
   end
 
   def new
