@@ -16,11 +16,11 @@
     <% @meetings.each do |meeting| %>
       <tr>
         <td><%= meeting.name %></td>
-        <td><%= meeting.user %></td>
-        <td><%= meeting.room %></td>
-        <td><%= link_to 'Show', meeting %></td>
-        <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
-        <td><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= User.find_by(id: meeting.user_id).email %></td>
+        <td><%= Room.find_by(id: meeting.room_id).name %></td>
+        <td><%= link_to 'Show', room_meeting_path(params[:room_id], meeting) %></td>
+        <td><%= link_to 'Edit', edit_room_meeting_path(@room, meeting) %></td>
+        <td><%= link_to 'Destroy', "#", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Meeting', new_meeting_path %>
+<%= link_to 'New Meeting', new_room_meeting_path(params[:room_id]) %>

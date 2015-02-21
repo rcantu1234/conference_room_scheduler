@@ -1,5 +1,9 @@
 class RoomsController < InheritedResources::Base
 
+  def index
+    @rooms = Room.all
+  end
+
   private
 
     def room_params

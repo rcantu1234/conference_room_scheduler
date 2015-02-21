@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :meetings
+  devise_for :users
 
-  resources :rooms
+  resources :rooms do
+    resources :meetings
+  end
 
   resources :users
 
