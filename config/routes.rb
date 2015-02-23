@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :meetings
   end
 
+  get 'meetings/index'
+
   resources :users
 
   devise_for :admin_users, ActiveAdmin::Devise.config
