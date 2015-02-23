@@ -6,13 +6,13 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @meeting.user %>
+  <strong>Meeting Start Time:</strong>
+  <%= @meeting.start_time %>
 </p>
 
 <p>
-  <strong>Room:</strong>
-  <%= @meeting.room %>
+  <strong>Meeting End Time:</strong>
+  <%= @meeting.end_time %>
 </p>
 
 <%= link_to 'Edit', edit_room_meeting_path(params[:room_id], @meeting) %> |

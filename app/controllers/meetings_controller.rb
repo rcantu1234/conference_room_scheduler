@@ -2,7 +2,7 @@ class MeetingsController < InheritedResources::Base
 
   def index
     @meetings = Meeting.all
-    @rooms = Room.find(params[:room_id])
+    @room = Room.find(params[:room_id])
   end
 
   def new
@@ -19,13 +19,13 @@ class MeetingsController < InheritedResources::Base
   def edit
     @meeting = Meeting.find(params[:id])
     @room = Room.find(params[:room_id])
-
   end
 
   def create
     @meeting = Meeting.new(meeting_params)
-    @meeting.user_id = current_user.id
-    @meeting.room_id = current_user.id
+    # @meeting.user_id = current_user.id
+    #@meeting = Meeting.find(params[:user_id])
+    #@meeting.room_id = current_user.id
 
      respond_to do |format|
       if @meeting.save
@@ -38,10 +38,19 @@ class MeetingsController < InheritedResources::Base
     end
   end
 
+  def destroy
+  @meeting = User.find(params[:id])
+  @meeting.destroy
+  respond_to do |format|
+    format.html { redirect_to meetings_url, notice: 'Meeting was successfully destroyed.' }
+    format.json { head :no_content }
+  end
+end
+
   private
 
     def meeting_params
-      params.require(:meeting).permit(:name, :user_id, :room_id)
+      params.require(:meeting).permit(:name, :user_id, :room_id, :start_time, :end_time)
     end
 end
 

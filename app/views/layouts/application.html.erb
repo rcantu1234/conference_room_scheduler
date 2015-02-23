@@ -16,8 +16,10 @@
     <div class='col-md-12'>
       <%= link_to 'HOME', root_path %> |
       <%= link_to 'USERS', users_path %> |
-      <%= link_to 'CONFERENCE ROOMS', rooms_path %>
-      <%= link_to 'MEETINGS', room_meetings_path(params[:room_id]) %>
+      <%= link_to 'CONFERENCE ROOMS', rooms_path %> |
+      <%= link_to 'SIGN-UP', new_user_registration_path(@user_sign_up) %> |
+      <%= link_to 'SIGN-IN', user_session_path(@user_sign_in) %> |
+      <%= link_to 'SIGN-OUT', destroy_user_session_path(@user_sign_out) %>
     </div>
   </div>
 </div>
@@ -31,6 +33,13 @@
     </div>
   </div>
 </div>
+
+<div>
+  <div>
+
+  </div>
+</div>
+<div></div>
 
 </body>
 </html>

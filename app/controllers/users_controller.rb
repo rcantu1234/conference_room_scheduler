@@ -1,5 +1,5 @@
 class UsersController < InheritedResources::Base
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
 
 def index
   @current_page = params.fetch(:page, 0).to_i
@@ -9,14 +9,26 @@ def index
   @users = User.order(:first_name).page params[:page]
 end
 
-# def destroy
-#   @user = User.find(params[:id])
-#   @user.destroy
-#   respond_to do |format|
-#     format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-#     format.json { head :no_content }
-#   end
-# end
+def destroy
+  @user = User.find(params[:id])
+  @user.destroy
+  respond_to do |format|
+    format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+    format.json { head :no_content }
+  end
+end
+
+  # def update
+  #   respond_to do |format|
+  #     if @user.update(user_params)
+  #       format.html { redirect_to @user, notice: 'User was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @user }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @user.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   private
     def set_user
