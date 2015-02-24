@@ -23,12 +23,14 @@ class MeetingsController < InheritedResources::Base
 
   def create
     @meeting = Meeting.new(meeting_params)
-    # @meeting.user_id = current_user.id
+    #@meeting.user_id = current_user.id
     #@meeting = Meeting.find(params[:user_id])
     #@meeting.room_id = current_user.id
+   # user = User.find(params[:user_id])
 
      respond_to do |format|
       if @meeting.save
+        UserMailer.new_meeting(@meeting).deliver
         format.html { redirect_to room_meetings_path(params[:room_id]), notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @meeting }
       else
