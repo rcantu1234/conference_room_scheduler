@@ -11,4 +11,7 @@ class User < ActiveRecord::Base
     validates :first_name, :uniqueness => { :message => " has been used."}
 
    # validates :start_time, :uniqueness => { :message => " has been taken." }
+
+  has_many :comments
+  has_many :posts
 end

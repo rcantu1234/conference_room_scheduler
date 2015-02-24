@@ -1,0 +1,5 @@
+<h1>Hello <%= @comment.post_author_email %>!</h1>
+
+<p>
+  You have a new comment on your article <%= link_to @comment.post.title, post_url(@comment.post, host: 'http://localhost:3000') %>
+</p>
