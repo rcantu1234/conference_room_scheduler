@@ -1,5 +1,6 @@
 var ready = function () {
-
+  timeFormatter();
+  $('#user-table').DataTable();
 };
 
 $(document).ready(ready);

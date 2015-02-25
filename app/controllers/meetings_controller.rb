@@ -22,6 +22,22 @@ class MeetingsController < InheritedResources::Base
     @room = Room.find(params[:room_id])
   end
 
+  def update
+
+    @meeting = Meeting.new(meeting_params)
+    # @meeting = Meeting.find(params[:id])
+    # @room = Room.find(params[:room_id])
+        respond_to do |format|
+      if @meeting.update(meeting_params)
+        format.html { redirect_to @meeting, notice: 'Meeting was successfully updated.' }
+        format.json { render :show, status: :ok, location: @meeting }
+      else
+        format.html { render :edit }
+        format.json { render json: @meeting.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def create
     @meeting = Meeting.new(meeting_params)
     #@meeting.user_id = current_user.id
@@ -31,7 +47,7 @@ class MeetingsController < InheritedResources::Base
 
      respond_to do |format|
       if @meeting.save
-       # UserMailer.new_meeting(@meeting).deliver
+       UserMailer.new_meeting(@meeting).deliver
         format.html { redirect_to room_meetings_path(params[:room_id]), notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @meeting }
       else

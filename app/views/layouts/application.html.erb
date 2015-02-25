@@ -6,6 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/darkly/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" media="all" href='https://cdn.datatables.net/1.10.5/css/jquery.dataTables.min.css'/>
 </head>
 <body>
 
@@ -17,9 +18,10 @@
       <%= link_to 'HOME', root_path %> |
       <%= link_to 'USERS', users_path %> |
       <%= link_to 'CONFERENCE ROOMS', rooms_path %> |
-      <%= link_to 'SIGN-UP', new_user_registration_path(@user_sign_up) %> |
-      <%= link_to 'SIGN-IN', user_session_path(@user_sign_in) %> |
-      <%= link_to 'SIGN-OUT', destroy_user_session_path(@user_sign_out) %>
+      <%= link_to 'MEETINGS', room_meetings_path(Room.first) %> |
+      <%= link_to 'SIGN-UP', new_user_registration_path(@user) %> |
+      <%= link_to 'SIGN-IN', user_session_path(@user) %> |
+      <%= link_to 'SIGN-OUT', destroy_user_session_path(@user), method: :delete %>
     </div>
   </div>
 </div>
@@ -33,6 +35,8 @@
     </div>
   </div>
 </div>
+  <script src='https://cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js'></script>
 
 </body>
 </html>

@@ -5,13 +5,17 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :meetings, dependent: :destroy
 
-  validates_presence_of :first_name, :last_name,
-    :date_of_birth, :favorite_color
+  #validates_presence_of :first_name, :last_name,
+    #:date_of_birth, :favorite_color
 
-    validates :first_name, :uniqueness => { :message => " has been used."}
+    #validates :first_name, :uniqueness => { :message => " has been used."}
 
    # validates :start_time, :uniqueness => { :message => " has been taken." }
 
   has_many :feedbacks
   has_many :posts
+
+    def to_s
+      name
+    end
 end
