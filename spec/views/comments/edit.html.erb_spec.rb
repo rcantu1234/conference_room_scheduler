@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "comments/edit", type: :view do
   before(:each) do
     @comment = assign(:comment, Comment.create!(
-      :body => "MyText",
+      :message => "MyString",
       :user => nil,
       :meeting => nil
     ))
@@ -14,7 +14,7 @@ RSpec.describe "comments/edit", type: :view do
 
     assert_select "form[action=?][method=?]", comment_path(@comment), "post" do
 
-      assert_select "textarea#comment_body[name=?]", "comment[body]"
+      assert_select "input#comment_message[name=?]", "comment[message]"
 
       assert_select "input#comment_user_id[name=?]", "comment[user_id]"
 
