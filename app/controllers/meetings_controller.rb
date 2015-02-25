@@ -3,7 +3,7 @@ class MeetingsController < InheritedResources::Base
   def index
     @meetings = Meeting.all
     @room = Room.find(params[:room_id])
-    @feedback = Feedback.find(params[:id])
+    #@feedback = Feedback.find(params[:id])
   end
 
   def new
@@ -31,7 +31,7 @@ class MeetingsController < InheritedResources::Base
 
      respond_to do |format|
       if @meeting.save
-        UserMailer.new_meeting(@meeting).deliver
+       # UserMailer.new_meeting(@meeting).deliver
         format.html { redirect_to room_meetings_path(params[:room_id]), notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @meeting }
       else
@@ -42,7 +42,7 @@ class MeetingsController < InheritedResources::Base
   end
 
   def destroy
-  @meeting = User.find(params[:id])
+  @meeting = Meeting.find(params[:id])
   @meeting.destroy
   respond_to do |format|
     format.html { redirect_to meetings_url, notice: 'Meeting was successfully destroyed.' }

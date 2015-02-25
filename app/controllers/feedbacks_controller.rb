@@ -7,8 +7,8 @@ class FeedbacksController < InheritedResources::Base
 
   def create
     @feedback = Feedback.new(feedback_params)
-    @user = User.find(params[:user_id])
-    @meeting = Meeting.find(params[:meeting_id])
+    #@user = User.find(params[:user_id])
+    #@meeting = Meeting.find(params[:meeting_id])
 
     respond_to do |format|
       if @feedback.save

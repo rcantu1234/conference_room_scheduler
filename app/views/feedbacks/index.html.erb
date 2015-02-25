@@ -16,8 +16,8 @@
     <% @feedbacks.each do |feedback| %>
       <tr>
         <td><%= feedback.message %></td>
-        <td><%= feedback.user_id %></td>
-        <td><%= feedback.meeting_id %></td>
+        <td><%= feedback.user %></td>
+        <td><%= feedback.meeting %></td>
         <td><%= link_to 'Show', feedback %></td>
         <td><%= link_to 'Edit', edit_feedback_path(feedback) %></td>
         <td><%= link_to 'Destroy', feedback, method: :delete, data: { confirm: 'Are you sure?' } %></td>
