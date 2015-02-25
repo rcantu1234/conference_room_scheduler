@@ -3,6 +3,7 @@ class MeetingsController < InheritedResources::Base
   def index
     @meetings = Meeting.all
     @room = Room.find(params[:room_id])
+    @feedback = Feedback.find(params[:id])
   end
 
   def new

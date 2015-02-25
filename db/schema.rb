@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150223194000) do
+ActiveRecord::Schema.define(version: 20150225010451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,17 @@ ActiveRecord::Schema.define(version: 20150223194000) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.string   "message"
+    t.integer  "user_id"
+    t.integer  "meeting_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "feedbacks", ["meeting_id"], name: "index_feedbacks_on_meeting_id", using: :btree
+  add_index "feedbacks", ["user_id"], name: "index_feedbacks_on_user_id", using: :btree
 
   create_table "meetings", force: :cascade do |t|
     t.string   "name"
@@ -112,6 +123,8 @@ ActiveRecord::Schema.define(version: 20150223194000) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "feedbacks", "meetings"
+  add_foreign_key "feedbacks", "users"
   add_foreign_key "meetings", "rooms"
   add_foreign_key "meetings", "users"
 end

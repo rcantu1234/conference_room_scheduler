@@ -12,6 +12,6 @@ class User < ActiveRecord::Base
 
    # validates :start_time, :uniqueness => { :message => " has been taken." }
 
-  has_many :comments
+  has_many :feedbacks
   has_many :posts
 end

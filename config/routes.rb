@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :comments
+  get 'feedbacks/index'
+
+  resources :feedbacks
 
   resources :posts
 

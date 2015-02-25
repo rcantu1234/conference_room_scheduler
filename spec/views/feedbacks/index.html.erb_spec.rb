@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "comments/index", type: :view do
+RSpec.describe "feedbacks/index", type: :view do
   before(:each) do
-    assign(:comments, [
-      Comment.create!(
+    assign(:feedbacks, [
+      Feedback.create!(
         :message => "Message",
         :user => nil,
         :meeting => nil
       ),
-      Comment.create!(
+      Feedback.create!(
         :message => "Message",
         :user => nil,
         :meeting => nil
@@ -16,7 +16,7 @@ RSpec.describe "comments/index", type: :view do
     ])
   end
 
-  it "renders a list of comments" do
+  it "renders a list of feedbacks" do
     render
     assert_select "tr>td", :text => "Message".to_s, :count => 2
     assert_select "tr>td", :text => nil.to_s, :count => 2
