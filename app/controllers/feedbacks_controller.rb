@@ -1,8 +1,12 @@
 class FeedbacksController < InheritedResources::Base
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_feedback, only: [:show, :edit, :update, :destroy]
 
   def index
     @feedbacks = Feedback.all
+  end
+
+  def show
+   # @feedback = Feedback.new
   end
 
   def create
@@ -23,6 +27,10 @@ class FeedbacksController < InheritedResources::Base
 
 
   private
+
+     def set_feedback
+      @feedback = Feedback.find(params[:id])
+    end
 
     def feedback_params
       params.require(:feedback).permit(:message, :user_id, :meeting_id)

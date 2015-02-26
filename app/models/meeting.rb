@@ -5,6 +5,6 @@ class Meeting < ActiveRecord::Base
   has_many :feedbacks
 
   def to_s
-    time.truncate(15)
+   # time.truncate(15)
   end
 end
