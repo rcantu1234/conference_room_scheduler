@@ -1,5 +1,5 @@
 var ready = function () {
-  $('#posts-table').DataTable();
+  $('#meetings-table').DataTable();
 };
 
 $(document).ready(ready);
