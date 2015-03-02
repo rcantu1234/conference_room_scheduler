@@ -1,4 +1,6 @@
 class RoomsController < InheritedResources::Base
+  before_action :set_room, only: [:show, :edit, :update, :destroy]
+
 
   def index
     # @rooms = Room.all
@@ -7,6 +9,10 @@ class RoomsController < InheritedResources::Base
                .offset(5 * params[:page].to_i)
                .order(params.fetch(:sort, :id))
     @rooms = Room.order(:name).page params[:page]
+  end
+
+  def show
+    # @room = Room.find(params[:id])
   end
 
   def update
