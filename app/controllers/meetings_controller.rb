@@ -2,6 +2,7 @@ class MeetingsController < InheritedResources::Base
 
   def index
     @meetings = Meeting.all
+    #@rooms = Rooms.all
     @room = Room.find(params[:room_id])
     @current_page = params.fetch(:page, 0).to_i
     @meetings = Meeting.limit(5)
@@ -29,13 +30,12 @@ class MeetingsController < InheritedResources::Base
   end
 
   def update
-
     @meeting = Meeting.new(meeting_params)
     # @meeting = Meeting.find(params[:id])
     # @room = Room.find(params[:room_id])
         respond_to do |format|
       if @meeting.update(meeting_params)
-        format.html { redirect_to room_meetings_path(@room), notice: 'Meeting was successfully updated.' }
+        format.html { redirect_to room_meeting_path(@room, meeting), notice: 'Meeting was successfully updated.' }
         format.json { render :show, status: :ok, location: @meeting }
       else
         format.html { render :edit }
