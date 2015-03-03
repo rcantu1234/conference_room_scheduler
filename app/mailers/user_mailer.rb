@@ -32,4 +32,10 @@ class UserMailer < ApplicationMailer
 
     mail to: comment.post_author_email, subject: 'New Comment On Post'
   end
+
+    def new_meeting(meeting)
+    @meeting = meeting
+
+    mail to: meeting.user.email, subject: 'New Meeting'
+  end
 end

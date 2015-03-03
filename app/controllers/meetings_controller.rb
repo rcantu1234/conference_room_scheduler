@@ -3,7 +3,6 @@ class MeetingsController < InheritedResources::Base
 
 
   def index
-    @meetings = Meeting.all
     #@rooms = Rooms.all
     @room = Room.find(params[:room_id])
     @current_page = params.fetch(:page, 0).to_i
@@ -24,7 +23,6 @@ class MeetingsController < InheritedResources::Base
   def show
     @meeting = Meeting.find(params[:id])
     @room = Room.find(params[:room_id])
-    @user = Room.find(params[:user_id])
   end
 
   def edit

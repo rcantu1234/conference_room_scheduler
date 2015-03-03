@@ -1,6 +1,5 @@
-class UsersController < InheritedResources::Base
-  before_action :set_user, only: [:show, :edit, :update]
-  before_action :authenticate_user!
+class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
 def index
   @current_page = params.fetch(:page, 0).to_i
@@ -19,12 +18,8 @@ def create
 end
 
 def destroy
-  # @user = User.find(params[:id])
   @user.destroy
-  respond_to do |format|
-    format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-    format.json { head :no_content }
-  end
+  redirect_to users_path
 end
 
   def update

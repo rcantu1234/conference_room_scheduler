@@ -4,6 +4,9 @@ class Meeting < ActiveRecord::Base
 
   has_many :feedbacks
 
+  validates :start_time, :uniqueness => { :message => " has been taken." }
+
+
   def to_s
    # time.truncate(15)
   end
