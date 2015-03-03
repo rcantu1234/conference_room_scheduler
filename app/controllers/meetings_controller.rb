@@ -1,4 +1,6 @@
 class MeetingsController < InheritedResources::Base
+    before_action :set_meeting, only: [:show, :edit, :update, :destroy]
+
 
   def index
     @meetings = Meeting.all
@@ -29,13 +31,14 @@ class MeetingsController < InheritedResources::Base
     @room = Room.find(params[:room_id])
   end
 
+
   def update
-    @meeting = Meeting.new(meeting_params)
+    #@meeting = Meeting.new(meeting_params)
     # @meeting = Meeting.find(params[:id])
     # @room = Room.find(params[:room_id])
         respond_to do |format|
       if @meeting.update(meeting_params)
-        format.html { redirect_to room_meeting_path(@room, meeting), notice: 'Meeting was successfully updated.' }
+        format.html { redirect_to room_meeting_path(params[:room_id], meeting), notice: 'Meeting was successfully updated.' }
         format.json { render :show, status: :ok, location: @meeting }
       else
         format.html { render :edit }
@@ -43,6 +46,7 @@ class MeetingsController < InheritedResources::Base
       end
     end
   end
+
 
   def create
     @meeting = Meeting.new(meeting_params)
@@ -53,7 +57,7 @@ class MeetingsController < InheritedResources::Base
 
      respond_to do |format|
       if @meeting.save
-       #UserMailer.new_meeting(@meeting).deliver
+       UserMailer.new_meeting(@meeting).deliver
         format.html { redirect_to room_meetings_path(params[:room_id]), notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @meeting }
       else
@@ -73,6 +77,10 @@ class MeetingsController < InheritedResources::Base
 end
 
   private
+
+    def set_meeting
+      @meeting = Meeting.find(params[:id])
+    end
 
     def meeting_params
       params.require(:meeting).permit(:name, :user_id, :room_id, :start_time, :end_time)

@@ -10,6 +10,14 @@ def index
   @users = User.order(:first_name).page params[:page]
 end
 
+def show
+  # @user = User.find(params[:user_id])
+end
+
+def create
+  @user = User.create( user_params )
+end
+
 def destroy
   # @user = User.find(params[:id])
   @user.destroy
@@ -19,17 +27,17 @@ def destroy
   end
 end
 
-  # def update
-  #   respond_to do |format|
-  #     if @user.update(user_params)
-  #       format.html { redirect_to @user, notice: 'User was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @user }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @user.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  def update
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   private
     def set_user
@@ -37,7 +45,7 @@ end
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :date_of_birth, :favorite_color)
+      params.require(:user).permit(:first_name, :last_name, :date_of_birth, :favorite_color, :avatar)
     end
 end
 

@@ -25,7 +25,9 @@
   </div>
   <div class="field">
     <%= f.label :favorite_color %><br>
-    <%= f.text_field :favorite_color %>
+    <%= f.select :favorite_color, [['Red'], ['Blue'], ['White'], ['Purple'],
+    ['Brown'], ['Black'], ['Pink'], ['Violet'], ['Aqua'], ['Turquoise'],
+    ['Green'], ['Magenta'], ['Teal']] %>
   </div>
 
   <br>

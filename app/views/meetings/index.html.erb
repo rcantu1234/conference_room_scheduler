@@ -26,7 +26,6 @@
         <td><%= meeting.updated_at %></td>
         <td><%= meeting.user %></td>
         <td><%= meeting.room %></td>
-
         <td><%= link_to 'Show', room_meeting_path(params[:room_id], meeting) %></td>
         <td><%= link_to 'Edit', edit_room_meeting_path(params[:room_id], meeting) %></td>
         <td><%= link_to 'Destroy', room_meeting_path(@room, meeting), method: :delete, data: { confirm: 'Are you sure?' } %></td>
