@@ -22,11 +22,11 @@
   <strong>User ID: </strong>
   <%= @meeting.user_id %>
 </p>
-
+<!--
 <p>
   <strong>Room ID: </strong>
   <%= @meeting.room_id %>
-</p>
+</p> -->
 
 <%= link_to 'Edit', edit_room_meeting_path(params[:room_id], @meeting) %> |
 <%= link_to 'Back', room_meetings_path(params[:room_id]) %>
