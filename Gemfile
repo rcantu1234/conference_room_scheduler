@@ -36,20 +36,14 @@ gem 'momentjs-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
 
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
 end
 
 
 gem 'hirb'
 gem 'kaminari'
 gem 'puma'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '< 2.0'
 gem 'figaro'
@@ -58,11 +52,21 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
 group :test, :development do
+    gem 'byebug'
+
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
+
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
   gem 'faker'
   gem 'quiet_assets'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'simplecov'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'capybara'
 end
 
 gem 'bootstrap-sass'

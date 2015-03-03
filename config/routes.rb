@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :feedbacks
-
-  resources :posts
-
   devise_for :users
-
+  resources :feedbacks
+  resources :posts
   resources :rooms do
     resources :meetings
   end

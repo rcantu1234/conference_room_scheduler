@@ -22,7 +22,7 @@
       <%= link_to 'COMMENTS', feedbacks_path %> |
       <%= link_to 'SIGN-UP', new_user_registration_path(@user) %> |
       <%= link_to 'SIGN-IN', user_session_path(@user) %> |
-      <%= link_to 'SIGN-OUT', destroy_user_session_path(@user), method: :delete %>
+      <%= link_to 'SIGN-OUT', destroy_user_session_path(@user), method: :DELETE %>
     </div>
   </div>
 </div>
@@ -32,6 +32,10 @@
     <div class='col-md-12'>
       <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
+
+      <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+      <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
+      <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
 
         <%= yield %>
     </div>
