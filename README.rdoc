@@ -1,28 +1,6 @@
-== README
+Heroku for Conference_Room_Scheduler
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is used to schedule rooms, schedule meetings, and add comments.  Every page asks the user for information, such as the date and time of the meeting, user's favorite color, date of birth, name of room and location, and other information.
+As a user, you login into the system with an email and a password using a secure user authentication.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+https://lit-bayou-2176.herokuapp.com
