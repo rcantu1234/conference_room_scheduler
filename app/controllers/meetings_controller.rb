@@ -57,7 +57,8 @@ class MeetingsController < InheritedResources::Base
                                        Start Time: #{@meeting.start_time},
                                        End Time: #{@meeting.end_time},
                                        Updated At: #{@meeting.updated_at},
-                                       User Name: #{@meeting.user}")
+                                       User Name: #{@meeting.user},
+                                       Phone Number: #{@meeting.user.phone_number}")
         format.html { redirect_to room_meetings_path(params[:room_id]), notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @meeting }
       else
