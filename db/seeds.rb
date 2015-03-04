@@ -13,7 +13,10 @@
     date_of_birth: "#{n}/#{n}/#{n}",
     email: "test#{n}@example.com",
     password: "password",
-    favorite_color: "Red"
+    favorite_color: "Red",
+    phone_number: Faker::PhoneNumber.cell_phone
+    # Faker::PhoneNumber.cell_phone #=> "(186)285-7925"
+
     })
 end
 
