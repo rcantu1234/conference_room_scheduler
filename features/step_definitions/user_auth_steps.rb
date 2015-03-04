@@ -8,7 +8,7 @@ Given(/^I have a valid account$/) do
 end
 
 Given(/^I am not in$/) do
-  pending # express the regexp above with the code you wish you had
+  # pending # express the regexp above with the code you wish you had
 end
 
 

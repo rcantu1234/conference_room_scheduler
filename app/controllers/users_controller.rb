@@ -14,7 +14,23 @@ def show
 end
 
 def create
-  @user = User.create( user_params )
+  @user = User.new(user_params)
+
+  respond_to do |format|
+    if @user.save
+      #CREATE TWILIO REMINDER
+      User.send_reminder_text_message("First Name: #{@user.first_name},
+                                       Last Name: #{@user.last_name},
+                                       Date of Birth: #{@user.date_of_birth},
+                                       Favorite Color: #{@user.favorite_color}")
+
+      format.html { redirect_to @user, notice: 'User was successfully created.' }
+      format.json { render :show, status: :created, location: @user }
+    else
+      format.html { render :new }
+      format.json { render json: @user.errors, status: :unprocessable_entity }
+    end
+  end
 end
 
 def destroy

@@ -46,17 +46,18 @@ class MeetingsController < InheritedResources::Base
     end
   end
 
-
   def create
     @meeting = Meeting.new(meeting_params)
-    #@meeting.user_id = current_user.id
-    #@meeting = Meeting.find(params[:user_id])
-    #@meeting.room_id = current_user.id
-   # user = User.find(params[:user_id])
 
      respond_to do |format|
       if @meeting.save
-       UserMailer.new_meeting(@meeting).deliver
+       # UserMailer.new_meeting(@meeting).deliver
+            #CREATE TWILIO REMINDER
+      Meeting.send_reminder_text_message("Name: #{@meeting.name},
+                                       Start Time: #{@meeting.start_time},
+                                       End Time: #{@meeting.end_time},
+                                       Updated At: #{@meeting.updated_at},
+                                       User Name: #{@meeting.user}")
         format.html { redirect_to room_meetings_path(params[:room_id]), notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @meeting }
       else

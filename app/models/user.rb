@@ -15,7 +15,22 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 
-    def to_s
-      first_name
-    end
+  def to_s
+    first_name
+  end
+
+  def self.establish_twilio
+    @account_sid = ENV['twilio_account_sid']
+    @auth_token = ENV['twilio_auth_token']
+    @from_phone_number = ENV['twilio_phone_number']
+    @twilio_client = Twilio::REST::Client.new(@account_sid, @auth_token)
+  end
+
+  def self.phone_call_fun_time
+  User.establish_twilio
+  @twilio_client.account.calls.create(url: 'http://demo.twilio.com/docs/voice.xml',
+                                      from: '@from_phone_number',
+                                      to: '512-981-9768')
+
+  end
 end

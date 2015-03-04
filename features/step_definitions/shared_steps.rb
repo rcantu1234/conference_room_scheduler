@@ -18,9 +18,9 @@ When(/^I press on the "(.*?)"$/) do |target|
   click_link(target)
 end
 
-# When(/^I click button "(.*?)"$/) do |arg1|
-#   pending # express the regexp above with the code you wish you had
-# end
+When(/^I click button "(.*?)"$/) do |target|
+  click_link(target)
+end
 
 Then(/^I should see "(.*?)"$/) do |text|
   expect(page).to have_content(text)
