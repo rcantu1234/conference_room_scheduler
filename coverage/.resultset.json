@@ -30,6 +30,14 @@
         0,
         null,
         null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
         null
       ],
       "/Users/roelcantu/theironyard/week_7/friday/conference_room_scheduler/features/step_definitions/user_auth_steps.rb": [
@@ -40,10 +48,19 @@
         null,
         1,
         0,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
         null
       ]
     },
-    "timestamp": 1425405623
+    "timestamp": 1425442205
   },
   "RSpec": {
     "coverage": {

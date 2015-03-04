@@ -19,7 +19,7 @@ end
 
 8.times do |n|
   Room.create!({
-                name: "Room#{n}",
+                name: "Room #{n}",
                 location: "Bldg #{n}",
                 description: Faker::Lorem.sentence,
     })

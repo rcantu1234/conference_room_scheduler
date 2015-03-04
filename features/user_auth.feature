@@ -38,4 +38,8 @@ Background:
   And I click "Sign up"
   Then I should see "Account success"
 
-
+  Scenario: Press New Meetings Path
+  When I visit "/users/meeting"
+  And I press on the "new meeting link"
+  Then I should see "John Doe" into "Name"
+# Write cucumber scenerios that create new meetings
