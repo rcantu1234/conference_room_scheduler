@@ -8,8 +8,8 @@ class MeetingsController < InheritedResources::Base
     @current_page = params.fetch(:page, 0).to_i
     @meetings = Meeting.limit(5)
                .offset(5 * params[:page].to_i)
-               .order(params.fetch(:sort, :id))
-    @meetings = Meeting.order(:name).page params[:page]
+               .order(params.fetch(:sort, :name))
+    #@meetings = Meeting.order(:name).page params[:page]
     #@user = User.find(params[:user_id])
     #@feedback = Feedback.find(params[:id])
   end

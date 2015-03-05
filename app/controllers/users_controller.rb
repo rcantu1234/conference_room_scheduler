@@ -5,8 +5,8 @@ def index
   @current_page = params.fetch(:page, 0).to_i
   @users = User.limit(5)
                .offset(5 * params[:page].to_i)
-               .order(params.fetch(:sort, :id))
-  @users = User.order(:first_name).page params[:page]
+               .order(params.fetch(:sort, :first_name))
+  #@users = User.order(:first_name).page params[:page]
 end
 
 def show
