@@ -42,7 +42,6 @@ end
 end
 
 def destroy
-  # @room = Room.find(params[:id])
   @room.destroy
   respond_to do |format|
     format.html { redirect_to rooms_url, notice: 'Room was successfully destroyed.' }
