@@ -17,7 +17,8 @@
 
 
 var ready = function () {
-
+  timeFormatter();
+  $('#meetings-table').DataTable();
 };
 
 $(document).ready(ready);

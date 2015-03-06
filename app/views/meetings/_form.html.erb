@@ -1,7 +1,7 @@
 <%= simple_form_for([@room, @meeting]) do |f| %>
 
     <div class="form-inputs">
-    <%= f.input :name %>
+    <%= f.input :name, label: 'Name (must be between 3 and 20 characters)' %>
     <%= f.input :start_time %>
     <%= f.input :end_time %>
     <%= f.association :user %>
