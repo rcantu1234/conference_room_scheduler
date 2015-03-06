@@ -8,6 +8,8 @@ jQuery ->
       inputLen   = $(@).val().length
       minLength  = 3
       maxLength  = 20
+      correct    = '✓ '
+      err        = '✗ '
 
       if inputLen == 0
         errMessage = err + ' Field is Required'
