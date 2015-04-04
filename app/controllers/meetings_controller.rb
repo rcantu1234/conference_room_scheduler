@@ -1,17 +1,12 @@
 class MeetingsController < InheritedResources::Base
     before_action :set_meeting, only: [:show, :edit, :update, :destroy]
 
-
   def index
-    #@rooms = Rooms.all
     @room = Room.find(params[:room_id])
     @current_page = params.fetch(:page, 0).to_i
     @meetings = Meeting.limit(5)
                .offset(5 * params[:page].to_i)
                .order(params.fetch(:sort, :name))
-    #@meetings = Meeting.order(:name).page params[:page]
-    #@user = User.find(params[:user_id])
-    #@feedback = Feedback.find(params[:id])
   end
 
   def new
@@ -34,7 +29,7 @@ class MeetingsController < InheritedResources::Base
   def update
         respond_to do |format|
       if @meeting.update(meeting_params)
-        format.html { redirect_to room_meeting_path(@room, meeting), notice: 'Meeting was successfully updated.' }
+        format.html { redirect_to room_meeting_path(params[:room_id], @meeting), notice: 'Meeting was successfully updated.' }
         format.json { render :show, status: :ok, location: @meeting }
       else
         format.html { render :edit }

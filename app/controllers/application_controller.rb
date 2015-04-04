@@ -5,9 +5,15 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
 
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+
+
 
   def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_up).push(:first_name, :last_name, :date_of_birth, :favorite_color)
-    end
+    devise_parameter_sanitizer.for(:sign_up).push(:first_name, :last_name, :date_of_birth,
+                                 :favorite_color, :phone_number)
+  end
 end
+
+
 

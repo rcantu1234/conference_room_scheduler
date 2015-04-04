@@ -6,7 +6,6 @@ def index
   @users = User.limit(5)
                .offset(5 * params[:page].to_i)
                .order(params.fetch(:sort, :first_name))
-  #@users = User.order(:first_name).page params[:page]
 end
 
 def show
@@ -19,7 +18,7 @@ end
 
 def create
   @user = User.new(user_params)
-
+  @user = User.create(user_params)
   respond_to do |format|
     if @user.save
       #CREATE TWILIO REMINDER
@@ -60,7 +59,7 @@ end
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :date_of_birth, :favorite_color, :image)
+      params.require(:user).permit(:first_name, :last_name, :date_of_birth, :favorite_color, :image, :avatar)
     end
 end
 
