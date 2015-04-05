@@ -19,9 +19,9 @@
     <% @meetings.each do |meeting| %>
       <tr>
         <td><%= meeting.name %></td>
-        <td><%= meeting.start_time %></td>
-        <td><%= meeting.end_time %></td>
-        <td><%= meeting.updated_at %></td>
+        <td><%= meeting.start_time.to_formatted_s(:long) %></td>
+        <td><%= meeting.end_time.to_formatted_s(:long) %></td>
+        <td><%= meeting.updated_at.to_formatted_s(:long) %></td>
         <td><%= meeting.user %></td><!--         <td><%= meeting.room %></td> -->
         <td><%= link_to 'Show', room_meeting_path(params[:room_id], meeting) %></td>
         <td><%= link_to 'Edit', edit_room_meeting_path(params[:room_id], meeting) %></td>
