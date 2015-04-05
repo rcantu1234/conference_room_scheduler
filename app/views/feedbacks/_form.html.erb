@@ -3,9 +3,11 @@
 
   <div class="form-inputs">
     <%= f.input :message %>
-    <%= f.association :user %>
-    <%= f.association :meeting %>
+    <%= f.association :user, :include_blank => false %>
+    <%= f.association :meeting, :include_blank => false %>
   </div>
+
+  <br>
 
   <div class="form-actions">
     <%= f.button :submit, 'Create Comment' %>
