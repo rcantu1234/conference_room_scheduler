@@ -3,16 +3,16 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs width-height">
-    <%= f.input :first_name %><br>
+  <div class="form-inputs sign-format">
+    <%= f.input :first_name, autofocus: true %><br>
     <%= f.input :last_name %><br>
     <%= f.input :date_of_birth %><br>
     <%= f.input :favorite_color %><br>
     <%= f.input :phone_number %><br>
-    <%= f.input :email, required: true, autofocus: true %><br>
-    <%= f.input :password, required: true, label:
-    ("Password (#{@minimum_password_length} characters minimum)" if @validatable) %>
-    <%= f.input :password_confirmation, required: true %>
+    <%= f.input :email, required: true %><br>
+    <%= f.input :password, input_html: { class: 'password-format' }, required: true, hint:
+    ("#{@minimum_password_length} characters minimum" if @validatable) %>
+    <%= f.input :password_confirmation, input_html: { class: 'password-confirmation-format' }, required: true %>
   </div>
 
   <br>
