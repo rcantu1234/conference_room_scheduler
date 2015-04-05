@@ -12,7 +12,6 @@
 .simple_form label {
   float: left;
   width: 70px;
- // text-align: right;
   margin: 2px;
 }
 
@@ -20,11 +19,18 @@
   margin-bottom: 10px;
 }
 
-// .simple_form div.boolean, .simple_form input[type = 'submit'] {
-//   margin-left: 120px;
-// }
-
 .simple_form div.boolean label {
   float: none;
   margin: 0;
+  width: 30%;
 }
+
+// .simple_form div.width-height {
+//  // float: none;
+//   width: 70px;
+//   margin: 0;
+//   padding-right: 5%;
+//   margin-bottom: 10px;
+// }
+
+
