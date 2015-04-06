@@ -1,3 +1,5 @@
+<%= image_tag @user.avatar.url %>
+
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
@@ -7,6 +9,11 @@
   <strong>Last name:</strong>
   <%= @user.last_name %>
 </p>
+<!--
+<p>
+  <strong>Date of birth:</strong>
+  <%= @user.dob %>
+</p> -->
 
 <p>
   <strong>Date of birth:</strong>
@@ -18,8 +25,10 @@
   <%= @user.favorite_color %>
 </p>
 
-
-<%= image_tag @user.avatar.url(:medium) %>
+<p>
+  <strong>Phone number</strong>
+  <%= @user.phone_number %>
+</p>
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
