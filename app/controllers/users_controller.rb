@@ -59,7 +59,7 @@ end
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :date_of_birth, :favorite_color, :image, :avatar)
+      params.require(:user).permit(:first_name, :last_name, :date_of_birth, :dob, :favorite_color, :image, :avatar)
     end
 end
 
