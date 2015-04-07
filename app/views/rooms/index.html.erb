@@ -5,6 +5,7 @@
 <table class='table table-striped'>
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Location</th>
       <th>Description</th>
@@ -15,7 +16,7 @@
   <tbody>
     <% @rooms.each do |room| %>
       <tr>
-        <td><%= image_tag room.photo.url(:medium) %></td>
+        <td><%= image_tag room.photo.url(:large) %></td>
         <td><%= room.name %></td>
         <td><%= room.location %></td>
         <td><%= room.description %></td>
