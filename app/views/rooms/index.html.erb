@@ -15,6 +15,7 @@
   <tbody>
     <% @rooms.each do |room| %>
       <tr>
+        <td><%= image_tag room.photo.url(:medium) %></td>
         <td><%= room.name %></td>
         <td><%= room.location %></td>
         <td><%= room.description %></td>

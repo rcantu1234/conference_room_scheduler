@@ -19,14 +19,14 @@
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
   </div>
-  <div class="field">
+<!--   <div class="field">
     <%= f.label :date_of_birth %><br>
     <%= date_field(:dob, :born_on) %>
-  </div>
- <!--    <div class="field">
+  </div> -->
+  <div class="field">
     <%= f.label :date_of_birth %><br>
     <%= f.text_field :date_of_birth %>
-  </div> -->
+  </div>
   <div class="field">
     <%= f.label :favorite_color %><br>
     <%= f.select :favorite_color, [['Red'], ['Blue'], ['White'], ['Purple'],
@@ -37,8 +37,10 @@
     <%= f.label :phone_number %><br>
     <%= f.text_field :phone_number %>
   </div>
-
-  <%= f.file_field :avatar %>
+    <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
 
   <br>
 

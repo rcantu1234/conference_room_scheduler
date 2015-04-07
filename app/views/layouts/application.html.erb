@@ -18,7 +18,7 @@
       <%= link_to 'HOME', root_path %> |
       <%= link_to 'USERS', users_path %> |
       <%= link_to 'CONFERENCE ROOMS', rooms_path %> |
-      <%= link_to 'MEETINGS', room_meetings_path(Room.first) %> |
+      <%= link_to 'MEETINGS', room_meetings_path(:room_id) %> |
       <%= link_to 'COMMENTS', feedbacks_path %> |
       <%= link_to 'SIGN-UP', new_user_registration_path(@user) %> |
       <%= link_to 'SIGN-IN', user_session_path(@user) %> |

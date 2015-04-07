@@ -2,7 +2,8 @@ class MeetingsController < InheritedResources::Base
     before_action :set_meeting, only: [:show, :edit, :update, :destroy]
 
   def index
-    @room = Room.find(params[:room_id])
+    #@room = Room.find(params[:room_id])
+    #@user = User.find(params[:user_id])
     @current_page = params.fetch(:page, 0).to_i
     @meetings = Meeting.limit(5)
                .offset(5 * params[:page].to_i)
@@ -18,6 +19,7 @@ class MeetingsController < InheritedResources::Base
   def show
     @meeting = Meeting.find(params[:id])
     @room = Room.find(params[:room_id])
+    @user = User.find(params[:user_id])
   end
 
   def edit

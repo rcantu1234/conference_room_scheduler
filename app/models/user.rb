@@ -12,11 +12,11 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :date_of_birth,
                         :favorite_color
 
-  validates :first_name, :uniqueness => { :message => " has been used."}
+  #validates :first_name, :uniqueness => { :message => " has been used."}
 
-  has_attached_file :avatar
+  # has_attached_file :avatar
 
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  # validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   def to_s
     first_name
