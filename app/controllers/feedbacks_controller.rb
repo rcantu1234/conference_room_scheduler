@@ -2,7 +2,13 @@ class FeedbacksController < InheritedResources::Base
   before_action :set_feedback, only: [:show, :edit, :update, :destroy]
 
   def index
-    @feedbacks = Feedback.all
+   # @feedbacks = Feedback.all
+  #  @meeting = Meeting.find(params[:meeting_id])
+   # @user = User.find(params[:user_id])
+    @current_page = params.fetch(:page, 0).to_i
+    @feedbacks = Feedback.limit(5)
+               .offset(5 * params[:page].to_i)
+               .order(params.fetch(:sort, :message))
   end
 
   def show
