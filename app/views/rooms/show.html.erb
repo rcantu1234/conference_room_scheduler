@@ -1,4 +1,4 @@
-<%= image_tag @room.photo.url %>
+<p class="image-format"><%= image_tag @room.photo.url %></p>
 
 <p>
   <strong>Name:</strong>
@@ -14,7 +14,6 @@
   <strong>Description:</strong>
   <%= @room.description %>
 </p>
-
 
 
 <%= link_to 'Edit', edit_room_path(@room) %> |

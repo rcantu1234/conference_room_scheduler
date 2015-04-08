@@ -5,7 +5,6 @@
 <table class='table table-striped'>
   <thead>
     <tr>
-      <th></th>
       <th>Name</th>
       <th>Location</th>
       <th>Description</th>
@@ -13,20 +12,17 @@
     </tr>
   </thead>
 
-  <tbody>
+  <div>
     <% @rooms.each do |room| %>
-      <tr>
-        <td><%= image_tag room.photo.url(:large) %></td>
-        <td><%= room.name %></td>
-        <td><%= room.location %></td>
-        <td><%= room.description %></td>
-        <td><%= link_to 'Show', room %></td>
-        <td><%= link_to 'Edit', edit_room_path(room) %></td>
-        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <!-- <tr> -->
+        <p><%= room.name %></p>
+        <p><%= room.location %></p>
+        <p><%= room.description %></p>
+        <p class='image-format'><%= image_tag room.photo.url %></p>
+      <!-- </tr> -->
     <% end %>
-  </tbody>
-</table>
+  </div>
+<!-- </table> -->
 
 <br>
 
