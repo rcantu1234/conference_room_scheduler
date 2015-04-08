@@ -1,13 +1,14 @@
 <h1>Listing Rooms</h1>
 
-<%= link_to 'New Room', new_room_path %>
+<!--<%= link_to 'New Room', new_room_path %> -->
 
   <div>
     <% @rooms.each do |room| %>
         <p><%= room.name %></p>
         <p><%= room.location %></p>
         <p><%= room.description %></p>
-        <p class='image-format'><%= image_tag room.photo.url %></p><br>
+        <p class='image-format'><%= link_to 'image_tag room.photo.url', room %></p>
+        <br>
     <% end %>
   </div>
 

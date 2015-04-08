@@ -9,7 +9,8 @@ class RoomsController < InheritedResources::Base
   end
 
   def show
-    # @room = Room.find(params[:id])
+    @room = Room.find(params[:id])
+    #@meeting = Meeting.find(params[:meeting_id])
   end
 
   def create
