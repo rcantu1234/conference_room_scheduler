@@ -6,12 +6,11 @@
   <div class="form-inputs sign-format">
     <%= f.input :first_name, autofocus: true %><br>
     <%= f.input :last_name %><br>
-<!--     <%= f.input :dob, :label => 'Date of Birth' %><br> -->
-    <%= f.input :date_of_birth %>
-    <%= f.select :favorite_color, [['Red'], ['Blue'], ['White'], ['Purple'],
-                 ['Brown'], ['Black'], ['Pink'], ['Violet'], ['Aqua'], ['Turquoise'],
-                 ['Green'], ['Magenta'], ['Teal']],
-                 :label => 'Favorite Color' %><br>
+    <%= f.input :dob, :label => 'Date of Birth' %><br>
+    <%= f.select :favorite_color, [['Red'], ['Blue'], ['White'],
+        ['Purple'], ['Brown'], ['Black'], ['Pink'], ['Violet'],
+        ['Aqua'], ['Turquoise'], ['Green'], ['Magenta'], ['Teal']]
+         %><br>
     <%= f.input :phone_number %><br>
     <%= f.input :email, required: true %><br>
     <%= f.input :password, input_html: { class: 'password-format' }, required: true, hint:

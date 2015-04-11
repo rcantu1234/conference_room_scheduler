@@ -19,14 +19,14 @@
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
   </div>
-<!--   <div class="field">
-    <%= f.label :date_of_birth %><br>
-    <%= date_field(:dob, :born_on) %>
-  </div> -->
   <div class="field">
     <%= f.label :date_of_birth %><br>
-    <%= f.text_field :date_of_birth %>
+    <%= date_field(:dob, :born_on) %>
   </div>
+ <!--  <div class="field">
+    <%= f.label :date_of_birth %><br>
+    <%= f.text_field :date_of_birth %>
+  </div> -->
   <div class="field">
     <%= f.label :favorite_color %><br>
     <%= f.select :favorite_color, [['Red'], ['Blue'], ['White'], ['Purple'],
