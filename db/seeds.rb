@@ -10,7 +10,7 @@
   User.create!({
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    date_of_birth: "#{n}/#{n}/#{n}",
+   # dob: "010101",
     email: "user-#{n}@example.com",
     password: "password",
     favorite_color: "Red",

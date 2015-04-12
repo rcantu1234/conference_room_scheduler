@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :feedbacks
   has_many :posts
 
-  validates_presence_of :first_name, :last_name, :dob,
+  validates_presence_of :first_name, :last_name,
                         :favorite_color
 
   #validates :first_name, :uniqueness => { :message => " has been used."}

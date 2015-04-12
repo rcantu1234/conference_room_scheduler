@@ -16,6 +16,10 @@ def new
   @user = User.new
 end
 
+def edit
+  @user = User.find(params[:id])
+end
+
 def create
   @user = User.new(user_params)
   @user = User.create(user_params)
@@ -59,7 +63,7 @@ end
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :date_of_birth, :dob, :phone_number, :favorite_color, :image, :avatar)
+      params.require(:user).permit(:first_name, :last_name, :dob, :phone_number, :favorite_color, :image, :avatar)
     end
 end
 
