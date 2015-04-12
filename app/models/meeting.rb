@@ -4,7 +4,7 @@ class Meeting < ActiveRecord::Base
   belongs_to :user
   belongs_to :room
 
-  has_many :feedbacks
+  has_many :feedbacks, dependent: :destroy
 
   validates :start_time, :uniqueness => { :message => " has been taken." }
 

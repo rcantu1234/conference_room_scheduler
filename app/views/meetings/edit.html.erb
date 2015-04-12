@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', room_meeting_path(@room, @meeting) %> |
-<%= link_to 'Back', room_meetings_path(@room) %>
+<%= link_to 'Show', room_meeting_path(params[:room_id], @meeting) %> |
+<%= link_to 'Back', room_meetings_path(params[:room_id]) %>

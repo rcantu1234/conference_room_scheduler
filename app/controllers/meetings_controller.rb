@@ -2,8 +2,6 @@ class MeetingsController < InheritedResources::Base
     before_action :set_meeting, only: [:show, :edit, :update, :destroy]
 
   def index
-    #@room = Room.find(params[:room_id])
-    #@user = User.find(params[:user_id])
     @current_page = params.fetch(:page, 0).to_i
     @meetings = Meeting.limit(5)
                .offset(5 * params[:page].to_i)
@@ -13,18 +11,17 @@ class MeetingsController < InheritedResources::Base
   def new
     @meeting = Meeting.new
     @user = current_user
-    @room = Room.find(params[:room_id])
+    @room = Room.new
+    #@meeting = @room.meetings.find(params[:id])
+    #@room = Room.find(params[:room_id])
   end
 
   def show
     @meeting = Meeting.find(params[:id])
-    @room = Room.find(params[:room_id])
-    @user = User.find(params[:user_id])
   end
 
   def edit
     @meeting = Meeting.find(params[:id])
-    @room = Room.find(params[:room_id])
   end
 
 
@@ -66,7 +63,7 @@ class MeetingsController < InheritedResources::Base
   @meeting = Meeting.find(params[:id])
   @meeting.destroy
   respond_to do |format|
-    format.html { redirect_to meetings_url, notice: 'Meeting was successfully destroyed.' }
+    format.html { redirect_to room_meetings_url, notice: 'Meeting was successfully destroyed.' }
     format.json { head :no_content }
   end
 end
