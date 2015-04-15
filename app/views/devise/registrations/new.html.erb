@@ -3,14 +3,15 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs sign-format">
+  <div class="form-inputs">
     <%= f.input :first_name, autofocus: true %><br>
     <%= f.input :last_name %><br>
     <%= f.input :dob %><br>
+    <%= f.label :favorite_color %><br>
     <%= f.select :favorite_color, [['Red'], ['Blue'], ['White'],
         ['Purple'], ['Brown'], ['Black'], ['Pink'], ['Violet'],
         ['Aqua'], ['Turquoise'], ['Green'], ['Magenta'], ['Teal']]
-         %><br>
+         %><br><br>
     <%= f.input :phone_number %><br>
     <%= f.input :email, required: true %><br>
     <%= f.input :password, input_html: { class: 'password-format' }, required: true, hint:

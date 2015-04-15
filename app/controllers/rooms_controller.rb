@@ -2,6 +2,7 @@ class RoomsController < InheritedResources::Base
   before_action :set_room, only: [:show, :edit, :update, :destroy]
 
   def index
+    @meetings = Meeting.all
     @current_page = params.fetch(:page, 0).to_i
     @rooms = Room.limit(5)
                .offset(5 * params[:page].to_i)
@@ -10,7 +11,7 @@ class RoomsController < InheritedResources::Base
 
   def show
     @room = Room.find(params[:id])
-    #@meeting = Meeting.find(params[:meeting_id])
+    @meetings = Meeting.all
   end
 
   def create

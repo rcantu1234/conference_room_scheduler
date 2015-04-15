@@ -18,18 +18,21 @@ class MeetingsController < InheritedResources::Base
 
   def show
     @meeting = Meeting.find(params[:id])
+    #@room = Room.find(params[:room_id])
+    #@user = User.find(params[:user_id])
   end
 
   def edit
     @meeting = Meeting.find(params[:id])
   end
 
-
   def update
         respond_to do |format|
       if @meeting.update(meeting_params)
-        format.html { redirect_to room_meeting_path(params[:room_id], @meeting), notice: 'Meeting was successfully updated.' }
+        format.html { redirect_to @meeting, notice: 'Meeting was successfully updated.' }
         format.json { render :show, status: :ok, location: @meeting }
+        # format.html { redirect_to room_meetings_path(params[:room_id]), notice: 'User was successfully created.' }
+        # format.json { render :show, status: :created, location: @meeting }
       else
         format.html { render :edit }
         format.json { render json: @meeting.errors, status: :unprocessable_entity }
