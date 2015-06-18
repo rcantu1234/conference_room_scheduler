@@ -1,21 +1,26 @@
 <p>
-  <strong>Name:</strong>
+  <strong>Name: </strong>
   <%= @meeting.name %>
 </p>
 
 <p>
-  <strong>Meeting Start Time:</strong>
+  <strong>Meeting Start Time: </strong>
   <%= @meeting.start_time %>
 </p>
 
 <p>
-  <strong>Meeting End Time:</strong>
+  <strong>Meeting End Time: </strong>
   <%= @meeting.end_time %>
 </p>
 
 <p>
-  <strong>Updated At</strong>
+  <strong>Updated At </strong>
   <%= @meeting.updated_at %>
+</p>
+
+<p>
+  <strong>Phone Number: </strong>
+  <%= @meeting.user.phone_number %>
 </p>
 
 <p>
@@ -23,10 +28,12 @@
   <%= @meeting.user_id %>
 </p>
 
-<p>
-  <strong>Phone Number: </strong>
-  <%= @meeting.user.phone_number %>
+<!-- <p>
+  <strong>Room ID: </strong>
+  <%= @meeting.room_id %>
 </p>
+ -->
+
 
 <%= link_to 'Edit', edit_room_meeting_path(params[:room_id], @meeting) %> |
 <%= link_to 'Back', room_meetings_path(params[:room_id]) %>

@@ -25,7 +25,7 @@
 
 .simple_form label {
   float: left;
-  width: 70px;
+  width: 100px;
   margin: 2px;
 }
 
@@ -41,7 +41,7 @@
 
 .password-format {
   width: 15%;
-  margin: 15px;
+  margin-bottom: 15px;
 }
 
 .password-confirmation-format {
@@ -51,5 +51,10 @@
 
 .log-in-format {
   width: 15%;
+}
+
+.remember-me-format {
+  margin-bottom: 25%;
+  font-color: blue;
 }
 
